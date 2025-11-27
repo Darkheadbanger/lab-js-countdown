@@ -6,10 +6,12 @@ let startBtn = document.getElementById("start-btn");
 let timeElement = document.getElementById("time");
 
 let timeCountdown = Number(timeElement.textContent);
+let countDownInterval = 0;
 
 // ITERATION 1: Add event listener to the start button
 
 startBtn.addEventListener("click", (event) => {
+  startBtn.disabled = true;
   startCountdown();
 });
 
@@ -17,14 +19,15 @@ startBtn.addEventListener("click", (event) => {
 
 // ITERATION 2: Start Countdown
 function startCountdown() {
-  let countDownInterval = setInterval(() => {
+  countDownInterval = setInterval(() => {
     timeCountdown--;
     timeElement.textContent = timeCountdown;
+
+    if (timeCountdown <= 0) {
+      showToast();
+      clearInterval(countDownInterval);
+    }
   }, 1000);
-  // Your code goes here ...
-  if(countDownInterval === 0){
-    
-  }
 }
 
 // ITERATION 3: Show Toast
