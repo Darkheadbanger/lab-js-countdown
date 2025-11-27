@@ -34,7 +34,7 @@ function startCountdown() {
 
 // ITERATION 3: Show Toast
 function showToast(message) {
-  const closeBtn = document.getElementById("close-toast")
+  const closeBtn = document.getElementById("close-toast");
   console.log("showToast called!");
 
   // Your code goes here ...
@@ -45,7 +45,10 @@ function showToast(message) {
   }, 3000);
 
   // BONUS: ITERATION 4: TOAST CLOSE BUTTON
-
+  closeBtn.addEventListener("click", (e) => {
+    const toastMessage = document.getElementById("toast");
+    toastMessage.classList.remove("show");
+  });
 
   // Your code goes here ...
 }
